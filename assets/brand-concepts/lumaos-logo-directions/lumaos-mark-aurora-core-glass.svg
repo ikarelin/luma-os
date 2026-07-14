@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora core glass mark</title>
+  <desc id="desc">A large rounded L with glass-like blue facets.</desc>
+  <defs>
+    <linearGradient id="mark" x1="72" y1="35" x2="202" y2="235" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e9fdff"/>
+      <stop offset="0.38" stop-color="#58d2ff"/>
+      <stop offset="0.74" stop-color="#326fff"/>
+      <stop offset="1" stop-color="#172fba"/>
+    </linearGradient>
+    <linearGradient id="facetA" x1="74" y1="44" x2="148" y2="172" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.56"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="facetB" x1="118" y1="165" x2="214" y2="224" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a7f2ff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#071526" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <path d="M79 37c20 0 36 16 36 36v80c0 13 10 23 23 23h51c20 0 36 16 36 36s-16 36-36 36h-64c-47 0-84-38-84-84V73c0-20 17-36 38-36Z" fill="url(#mark)"/>
+  <path d="M82 45c15 0 27 12 27 27v86c0 10 3 20 9 29l-49-24V73c0-15 6-25 13-28Z" fill="url(#facetA)"/>
+  <path d="M118 172c9 10 22 16 36 16h38c16 0 29 10 34 23-1 20-17 37-37 37h-64c-25 0-48-11-63-28l56-48Z" fill="url(#facetB)"/>
+  <path d="M87 54c9 0 16 7 16 16v84" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity="0.5"/>
+</svg>

@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+lb config noauto \
+  --mode debian \
+  --distribution trixie \
+  --architectures amd64 \
+  --archive-areas "main contrib non-free non-free-firmware" \
+  --binary-images iso-hybrid \
+  --debian-installer none \
+  --image-name lumaos-alpha \
+  --iso-application "LumaOS Alpha" \
+  --iso-preparer "LumaOS Project" \
+  --iso-publisher "LumaOS Project" \
+  --iso-volume "LumaOS Alpha" \
+  --memtest none \
+  --win32-loader false \
+  --mirror-bootstrap "https://deb.debian.org/debian/" \
+  --mirror-chroot "https://deb.debian.org/debian/" \
+  --mirror-binary "https://deb.debian.org/debian/" \
+  --mirror-chroot-security "https://deb.debian.org/debian-security/" \
+  --mirror-binary-security "https://deb.debian.org/debian-security/" \
+  --parent-mirror-bootstrap "https://deb.debian.org/debian/" \
+  --parent-mirror-chroot "https://deb.debian.org/debian/" \
+  --parent-mirror-binary "https://deb.debian.org/debian/" \
+  --parent-mirror-chroot-security "https://deb.debian.org/debian-security/" \
+  --parent-mirror-binary-security "https://deb.debian.org/debian-security/" \
+  --bootappend-live "boot=live components quiet splash username=luma hostname=lumaos locales=en_US.UTF-8,ru_RU.UTF-8 keyboard-layouts=us,ru timezone=Europe/Moscow" \
+  "${@}"

@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+if [ "$(id -u)" -ne 0 ]; then
+  exec sudo "$0" "$@"
+fi
+
+lb clean noauto --purge "$@"

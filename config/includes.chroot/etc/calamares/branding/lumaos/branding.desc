@@ -1,0 +1,39 @@
+---
+componentName:   lumaos
+welcomeStyleCalamares: true
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowSize: 800px,580px
+windowPlacement: center
+
+strings:
+    productName:         LumaOS
+    shortProductName:    LumaOS
+    version:             0.1 Alpha
+    shortVersion:        0.1
+    versionedName:       LumaOS 0.1 Alpha
+    shortVersionedName:  LumaOS Alpha
+    bootloaderEntryName: LumaOS
+    productUrl:          https://example.invalid/lumaos
+    supportUrl:          https://example.invalid/lumaos/support
+    knownIssuesUrl:      https://example.invalid/lumaos/issues
+    releaseNotesUrl:     https://example.invalid/lumaos/releases
+    donateUrl:           https://example.invalid/lumaos
+
+sidebar: widget
+navigation: widget
+
+images:
+    productLogo:         "lumaos-logo.png"
+    productIcon:         "lumaos-logo.png"
+    productWelcome:      "welcome.png"
+
+slideshow:               "show.qml"
+
+style:
+   SidebarBackground:    "#071526"
+   SidebarText:          "#FFFFFF"
+   SidebarTextCurrent:   "#FFFFFF"
+   SidebarBackgroundCurrent: "#123E85"
+
+slideshowAPI: 2

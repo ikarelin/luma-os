@@ -1,0 +1,13 @@
+* text=auto
+*.sh text eol=lf
+auto/* text eol=lf
+scripts/* text eol=lf
+config/hooks/** text eol=lf
+config/includes.chroot/usr/sbin/* text eol=lf
+config/includes.chroot/usr/share/calamares/helpers/* text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.iso binary
+*.zsync binary

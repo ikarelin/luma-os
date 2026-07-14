@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS boot logo</title>
+  <desc id="desc">A Fedora-like horizontal LumaOS boot splash lockup for dark backgrounds.</desc>
+  <defs>
+    <linearGradient id="lumaos-boot-mark" x1="70" y1="10" x2="168" y2="138" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.34" stop-color="#6fe3ff"/>
+      <stop offset="0.68" stop-color="#397bff"/>
+      <stop offset="1" stop-color="#1f3bd6"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(48 6) scale(0.56)">
+    <path d="M79 37c20 0 36 16 36 36v80c0 13 10 23 23 23h51c20 0 36 16 36 36s-16 36-36 36h-64c-47 0-84-38-84-84V73c0-20 17-36 38-36Z" fill="url(#lumaos-boot-mark)"/>
+  </g>
+  <text x="202" y="106" fill="#ffffff" font-family="Inter, Cantarell, Ubuntu, Segoe UI, Arial, sans-serif" font-size="76" font-weight="520" letter-spacing="0">LumaOS</text>
+</svg>

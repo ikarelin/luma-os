@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS ribbon window mark</title>
+  <desc id="desc">Folded blue panes forming a soft operating system window mark.</desc>
+  <defs>
+    <linearGradient id="paneA" x1="48" y1="52" x2="136" y2="136" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c8fbff"/>
+      <stop offset="1" stop-color="#3b9dff"/>
+    </linearGradient>
+    <linearGradient id="paneB" x1="124" y1="48" x2="212" y2="136" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6bd8ff"/>
+      <stop offset="1" stop-color="#2958ff"/>
+    </linearGradient>
+    <linearGradient id="paneC" x1="52" y1="128" x2="208" y2="214" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2b71ff"/>
+      <stop offset="1" stop-color="#0b2b7a"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <path d="M50 62c0-8 6-14 14-14h65v76H50V62Z" fill="url(#paneA)"/>
+  <path d="M137 48h55c8 0 14 6 14 14v62h-69V48Z" fill="url(#paneB)"/>
+  <path d="M50 132h79v76H64c-8 0-14-6-14-14v-62Z" fill="url(#paneC)"/>
+  <path d="M137 132h69v62c0 8-6 14-14 14h-55v-76Z" fill="#1b49d8"/>
+  <path d="M79 75h26v96h54v27H79V75Z" fill="#ffffff" opacity="0.92"/>
+</svg>

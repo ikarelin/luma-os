@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora L mark</title>
+  <desc id="desc">A rounded L built from luminous blue aurora bands.</desc>
+  <defs>
+    <linearGradient id="bg" x1="32" y1="24" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a224d"/>
+      <stop offset="1" stop-color="#07111f"/>
+    </linearGradient>
+    <linearGradient id="light" x1="68" y1="42" x2="190" y2="212" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a9f4ff"/>
+      <stop offset="0.45" stop-color="#38a6ff"/>
+      <stop offset="1" stop-color="#3156ff"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="92" y1="54" x2="182" y2="198" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <path d="M78 48c17 0 31 14 31 31v67c0 11 9 20 20 20h49c17 0 31 14 31 31s-14 31-31 31h-61c-39 0-70-31-70-70V79c0-17 14-31 31-31Z" fill="url(#light)"/>
+  <path d="M82 57c10 0 18 8 18 18v78c0 29 24 53 53 53h25c9 0 17-5 22-12 1 18-13 34-31 34h-52c-39 0-70-31-70-70V79c0-12 7-21 17-26 5 3 11 4 18 4Z" fill="#07111f" opacity="0.18"/>
+  <path d="M84 58c11 2 20 11 20 23v71c0 24 20 44 44 44h39" fill="none" stroke="url(#edge)" stroke-width="12" stroke-linecap="round" opacity="0.65"/>
+</svg>

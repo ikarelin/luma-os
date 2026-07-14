@@ -1,0 +1,49 @@
+#!/bin/sh
+set -e
+
+if [ -d /usr/share/plymouth/themes/spinner ] && [ -d /usr/share/plymouth/themes/lumaos ]; then
+  cp -a /usr/share/plymouth/themes/spinner/animation-*.png /usr/share/plymouth/themes/lumaos/ 2>/dev/null || true
+  cp -a /usr/share/plymouth/themes/spinner/throbber-*.png /usr/share/plymouth/themes/lumaos/ 2>/dev/null || true
+  cp -a /usr/share/plymouth/themes/spinner/bullet.png /usr/share/plymouth/themes/lumaos/ 2>/dev/null || true
+  cp -a /usr/share/plymouth/themes/spinner/capslock.png /usr/share/plymouth/themes/lumaos/ 2>/dev/null || true
+  cp -a /usr/share/plymouth/themes/spinner/entry.png /usr/share/plymouth/themes/lumaos/ 2>/dev/null || true
+  cp -a /usr/share/plymouth/themes/spinner/keyboard.png /usr/share/plymouth/themes/lumaos/ 2>/dev/null || true
+  cp -a /usr/share/plymouth/themes/spinner/keymap-render.png /usr/share/plymouth/themes/lumaos/ 2>/dev/null || true
+  cp -a /usr/share/plymouth/themes/spinner/lock.png /usr/share/plymouth/themes/lumaos/ 2>/dev/null || true
+fi
+
+if [ -f /usr/share/plymouth/themes/lumaos/lumaos.plymouth ]; then
+  mkdir -p /etc/plymouth
+  cat > /etc/plymouth/plymouthd.conf <<'EOF'
+[Daemon]
+Theme=lumaos
+ShowDelay=0
+EOF
+
+  mkdir -p /etc/alternatives
+  ln -sfn /usr/share/plymouth/themes/lumaos/lumaos.plymouth /etc/alternatives/default.plymouth
+  ln -sfn /etc/alternatives/default.plymouth /usr/share/plymouth/themes/default.plymouth
+fi
+
+if [ -f /usr/share/plymouth/themes/lumaos/watermark.png ]; then
+  cp -a /usr/share/plymouth/themes/lumaos/watermark.png /usr/share/plymouth/debian-logo.png
+
+  # Debian's initramfs plymouth hook overwrites two-step watermarks from
+  # desktop-base, so brand that source before update-initramfs runs.
+  mkdir -p /usr/share/desktop-base/debian-logos
+  cp -a /usr/share/plymouth/themes/lumaos/watermark.png \
+    /usr/share/desktop-base/debian-logos/logo-text-version-64.png
+fi
+
+mkdir -p /etc/initramfs-tools/conf.d
+cat > /etc/initramfs-tools/conf.d/lumaos-plymouth <<'EOF'
+FRAMEBUFFER=y
+EOF
+
+if command -v plymouth-set-default-theme >/dev/null 2>&1; then
+  plymouth-set-default-theme -R lumaos || plymouth-set-default-theme lumaos || true
+fi
+
+if command -v update-initramfs >/dev/null 2>&1; then
+  update-initramfs -u -k all
+fi

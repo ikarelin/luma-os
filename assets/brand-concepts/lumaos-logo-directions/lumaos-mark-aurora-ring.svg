@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora ring mark</title>
+  <desc id="desc">A luminous L inside a subtle cyan aurora ring.</desc>
+  <defs>
+    <linearGradient id="ring" x1="42" y1="184" x2="212" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#244dff"/>
+      <stop offset="0.52" stop-color="#55dbff"/>
+      <stop offset="1" stop-color="#f2feff"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="86" y1="58" x2="174" y2="194" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.45" stop-color="#60d6ff"/>
+      <stop offset="1" stop-color="#2d61ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <path d="M55 142c11 47 60 80 111 62 45-15 66-62 45-101" fill="none" stroke="url(#ring)" stroke-width="15" stroke-linecap="round"/>
+  <path d="M199 80c-31-32-82-39-121-16" fill="none" stroke="#5bdfff" stroke-width="11" stroke-linecap="round" opacity="0.56"/>
+  <path d="M92 58c15 0 27 12 27 27v66c0 11 9 20 20 20h42c15 0 27 12 27 27s-12 27-27 27h-53c-36 0-64-29-64-64V85c0-15 12-27 28-27Z" fill="url(#mark)"/>
+  <circle cx="61" cy="142" r="8" fill="#eefeff"/>
+</svg>

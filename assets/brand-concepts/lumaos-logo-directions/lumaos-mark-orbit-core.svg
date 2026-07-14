@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS orbit core mark</title>
+  <desc id="desc">A luminous blue core with a clean orbital path.</desc>
+  <defs>
+    <radialGradient id="core" cx="50%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#e9fbff"/>
+      <stop offset="0.35" stop-color="#52c7ff"/>
+      <stop offset="1" stop-color="#1d54ff"/>
+    </radialGradient>
+    <linearGradient id="orbit" x1="42" y1="178" x2="218" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2d6cff"/>
+      <stop offset="0.5" stop-color="#78e6ff"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <circle cx="128" cy="128" r="58" fill="url(#core)"/>
+  <path d="M57 152c28 44 105 52 147 17 31-26 22-61-13-73" fill="none" stroke="url(#orbit)" stroke-width="17" stroke-linecap="round"/>
+  <path d="M79 75c27-31 81-39 121-8" fill="none" stroke="#6fdcff" stroke-width="13" stroke-linecap="round" opacity="0.55"/>
+  <path d="M112 82h24v72h44v24h-68V82Z" fill="#f7fcff" opacity="0.95"/>
+  <circle cx="205" cy="86" r="12" fill="#dffaff"/>
+</svg>

@@ -1,0 +1,1 @@
+deb [trusted=yes] http://192.168.1.81:8080/luma-linux/repo trixie main

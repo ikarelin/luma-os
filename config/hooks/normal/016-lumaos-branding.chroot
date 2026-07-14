@@ -1,0 +1,57 @@
+#!/bin/sh
+set -e
+
+install -d /usr/share/desktop-base/debian-logos
+install -d /usr/share/icons/hicolor/256x256/apps
+install -d /usr/share/icons/hicolor/512x512/apps
+
+if [ -f /usr/share/lumaos/branding/lumaos-mark-256.png ]; then
+  cp -a /usr/share/lumaos/branding/lumaos-mark-256.png \
+    /usr/share/icons/hicolor/256x256/apps/lumaos.png
+  cp -a /usr/share/lumaos/branding/lumaos-mark-256.png \
+    /usr/share/desktop-base/debian-logos/logo-64.png
+  cp -a /usr/share/lumaos/branding/lumaos-mark-256.png \
+    /usr/share/desktop-base/debian-logos/logo-256.png
+fi
+
+if [ -f /usr/share/lumaos/branding/lumaos-app-icon-512.png ]; then
+  cp -a /usr/share/lumaos/branding/lumaos-app-icon-512.png \
+    /usr/share/icons/hicolor/512x512/apps/lumaos.png
+  cp -a /usr/share/lumaos/branding/lumaos-app-icon-512.png /etc/skel/.face
+  install -d /var/lib/AccountsService/icons
+  cp -a /usr/share/lumaos/branding/lumaos-app-icon-512.png \
+    /var/lib/AccountsService/icons/luma
+fi
+
+if [ -f /usr/share/lumaos/branding/lumaos-boot-logo.png ]; then
+  cp -a /usr/share/lumaos/branding/lumaos-boot-logo.png \
+    /usr/share/desktop-base/debian-logos/logo-text-version-64.png
+  cp -a /usr/share/lumaos/branding/lumaos-boot-logo.png \
+    /usr/share/desktop-base/debian-logos/logo-text-version-128.png
+  cp -a /usr/share/lumaos/branding/lumaos-boot-logo.png \
+    /usr/share/desktop-base/debian-logos/logo-text-version-256.png
+fi
+
+if [ -f /usr/share/lumaos/branding/lumaos-wordmark.png ]; then
+  cp -a /usr/share/lumaos/branding/lumaos-wordmark.png \
+    /usr/share/desktop-base/debian-logos/logo-text-128.png
+  cp -a /usr/share/lumaos/branding/lumaos-wordmark.png \
+    /usr/share/desktop-base/debian-logos/logo-text-256.png
+fi
+
+if [ -f /etc/gdm3/greeter.dconf-defaults ] && \
+   ! grep -q "/usr/share/pixmaps/lumaos-logo.png" /etc/gdm3/greeter.dconf-defaults; then
+  cat >> /etc/gdm3/greeter.dconf-defaults <<'EOF'
+
+[org/gnome/login-screen]
+logo='/usr/share/pixmaps/lumaos-logo.png'
+EOF
+fi
+
+if [ -d /etc/dconf/db/gdm.d ] && command -v dconf >/dev/null 2>&1; then
+  dconf update
+fi
+
+if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+  gtk-update-icon-cache -q /usr/share/icons/hicolor || true
+fi

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora flat mark</title>
+  <desc id="desc">A minimal flat blue L for small-size branding.</desc>
+  <defs>
+    <linearGradient id="flat" x1="78" y1="54" x2="184" y2="212" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#69dbff"/>
+      <stop offset="1" stop-color="#255dff"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <path d="M78 50h42v119h78v39H78V50Z" fill="url(#flat)"/>
+  <path d="M93 64h12v91c0 22 18 40 40 40h38" fill="none" stroke="#dffaff" stroke-width="10" stroke-linecap="round" opacity="0.72"/>
+</svg>

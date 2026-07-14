@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora core glow mark</title>
+  <desc id="desc">An enlarged rounded L with a soft blue glow.</desc>
+  <defs>
+    <linearGradient id="mark" x1="70" y1="36" x2="194" y2="226" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7feff"/>
+      <stop offset="0.42" stop-color="#42caff"/>
+      <stop offset="1" stop-color="#2b4dff"/>
+    </linearGradient>
+    <filter id="glow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.08 0 0 0 0 0.55 0 0 0 0 1 0 0 0 0.85 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#06111f"/>
+  <path d="M79 37c20 0 36 16 36 36v80c0 13 10 23 23 23h51c20 0 36 16 36 36s-16 36-36 36h-64c-47 0-84-38-84-84V73c0-20 17-36 38-36Z" fill="url(#mark)" filter="url(#glow)"/>
+  <path d="M87 54c8 0 15 7 15 15v87c0 35 28 63 63 63h22" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.45"/>
+</svg>

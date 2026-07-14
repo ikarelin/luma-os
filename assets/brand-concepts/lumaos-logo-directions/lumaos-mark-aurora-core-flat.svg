@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora core flat mark</title>
+  <desc id="desc">A flat enlarged rounded L without ring or glow.</desc>
+  <defs>
+    <linearGradient id="flat" x1="74" y1="40" x2="200" y2="226" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#68dfff"/>
+      <stop offset="1" stop-color="#2858ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <path d="M75 39c19 0 35 16 35 35v80c0 14 11 25 25 25h52c19 0 35 15 35 34s-16 35-35 35h-65c-45 0-82-37-82-82V74c0-19 16-35 35-35Z" fill="url(#flat)"/>
+  <path d="M84 53c8 0 14 6 14 14v87c0 34 27 61 61 61h27" fill="none" stroke="#d9fbff" stroke-width="8" stroke-linecap="round" opacity="0.72"/>
+</svg>

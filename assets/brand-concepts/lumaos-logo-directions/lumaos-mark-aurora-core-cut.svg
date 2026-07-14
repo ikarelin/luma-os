@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora core cut mark</title>
+  <desc id="desc">An enlarged blue L with a diagonal prism cut.</desc>
+  <defs>
+    <linearGradient id="mark" x1="70" y1="36" x2="198" y2="230" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dffbff"/>
+      <stop offset="0.48" stop-color="#329cff"/>
+      <stop offset="1" stop-color="#1830c2"/>
+    </linearGradient>
+    <linearGradient id="cut" x1="74" y1="174" x2="204" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <path d="M79 37c20 0 36 16 36 36v80c0 13 10 23 23 23h51c20 0 36 16 36 36s-16 36-36 36h-64c-47 0-84-38-84-84V73c0-20 17-36 38-36Z" fill="url(#mark)"/>
+  <path d="M54 179 201 72l22 22L77 202Z" fill="url(#cut)" opacity="0.48"/>
+  <path d="M88 55c8 0 15 7 15 15v85c0 31 25 56 56 56h30" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.43"/>
+</svg>

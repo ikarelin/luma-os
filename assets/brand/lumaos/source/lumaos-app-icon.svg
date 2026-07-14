@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS app icon</title>
+  <desc id="desc">A rounded-square LumaOS icon with the clean gradient mark.</desc>
+  <defs>
+    <linearGradient id="lumaos-icon-bg" x1="42" y1="20" x2="214" y2="236" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b2747"/>
+      <stop offset="0.52" stop-color="#071526"/>
+      <stop offset="1" stop-color="#050a16"/>
+    </linearGradient>
+    <linearGradient id="lumaos-icon-mark" x1="70" y1="22" x2="194" y2="212" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.34" stop-color="#6fe3ff"/>
+      <stop offset="0.68" stop-color="#397bff"/>
+      <stop offset="1" stop-color="#1f3bd6"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#lumaos-icon-bg)"/>
+  <path d="M79 37c20 0 36 16 36 36v80c0 13 10 23 23 23h51c20 0 36 16 36 36s-16 36-36 36h-64c-47 0-84-38-84-84V73c0-20 17-36 38-36Z" fill="url(#lumaos-icon-mark)" transform="translate(0 -14)"/>
+</svg>

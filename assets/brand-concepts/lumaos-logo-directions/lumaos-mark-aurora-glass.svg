@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora glass mark</title>
+  <desc id="desc">A translucent blue glass tile with an aurora L.</desc>
+  <defs>
+    <linearGradient id="tile" x1="42" y1="30" x2="220" y2="230" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#164fbb"/>
+      <stop offset="0.52" stop-color="#0d2d77"/>
+      <stop offset="1" stop-color="#07111f"/>
+    </linearGradient>
+    <linearGradient id="luma" x1="74" y1="50" x2="192" y2="206" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f1feff"/>
+      <stop offset="0.35" stop-color="#69ddff"/>
+      <stop offset="0.72" stop-color="#3489ff"/>
+      <stop offset="1" stop-color="#243cff"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="62" y1="38" x2="196" y2="178" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="22" y="22" width="212" height="212" rx="58" fill="url(#tile)"/>
+  <rect x="34" y="34" width="188" height="92" rx="40" fill="url(#shine)" opacity="0.5"/>
+  <path d="M80 52c16 0 29 13 29 29v70c0 11 9 20 20 20h50c16 0 29 13 29 29s-13 29-29 29h-61c-38 0-68-30-68-68V81c0-16 13-29 30-29Z" fill="url(#luma)"/>
+  <path d="M81 64c8 0 15 7 15 15v77c0 30 24 54 54 54h26" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity="0.55"/>
+</svg>

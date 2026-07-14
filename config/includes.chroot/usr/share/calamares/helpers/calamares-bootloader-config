@@ -1,0 +1,42 @@
+#!/bin/bash
+set -e
+
+CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
+
+if [ -z "$CHROOT" ] || [ ! -d "$CHROOT" ]; then
+    echo "Could not detect Calamares target chroot." >&2
+    exit 1
+fi
+
+echo "Running bootloader config..."
+
+if [ "$(mount | grep "$CHROOT " | cut -c -16)" = "/dev/mapper/luks" ]; then
+    echo "UMASK=0077" > "$CHROOT/etc/initramfs-tools/conf.d/initramfs-permissions"
+    if chroot "$CHROOT" dpkg-query -W cryptsetup-initramfs cryptsetup keyutils >/dev/null 2>&1; then
+        echo " * LUKS initramfs utilities are already installed."
+    else
+        echo " * LUKS initramfs utilities are missing; skipping network package install in Luma live installer."
+    fi
+fi
+
+if [ -d /sys/firmware/efi/efivars ]; then
+    echo " * Using preinstalled GRUB EFI packages..."
+else
+    echo " * Using preinstalled GRUB BIOS packages..."
+fi
+
+if [ -f "$CHROOT/etc/default/grub" ]; then
+    sed -i "s/#GRUB_DISABLE_OS_PROBER=false/# OS_PROBER re-enabled by Luma Calamares installation:\nGRUB_DISABLE_OS_PROBER=false/g" "$CHROOT/etc/default/grub"
+fi
+
+mkdir -p "$CHROOT/boot/grub"
+
+if [ -x "$CHROOT/usr/sbin/update-grub" ]; then
+    chroot "$CHROOT" /usr/sbin/update-grub
+elif [ -x "$CHROOT/usr/sbin/grub-mkconfig" ]; then
+    chroot "$CHROOT" /usr/sbin/grub-mkconfig -o /boot/grub/grub.cfg
+else
+    echo "Neither update-grub nor grub-mkconfig is available in target." >&2
+    chroot "$CHROOT" /bin/sh -c "dpkg-query -W grub-common grub2-common grub-pc-bin grub-efi-amd64-bin grub-efi-amd64-signed 2>/dev/null || true" >&2
+    exit 1
+fi

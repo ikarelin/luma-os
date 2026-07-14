@@ -1,0 +1,81 @@
+#!/bin/sh
+set -e
+
+if [ -d boot/grub ]; then
+  mkdir -p boot/grub/live-theme
+
+  if [ -f isolinux/splash.png ] && [ ! -f boot/grub/splash.png ]; then
+    cp isolinux/splash.png boot/grub/splash.png
+  fi
+
+  cat > boot/grub/theme.cfg <<'EOF'
+set color_normal=light-gray/black
+set color_highlight=white/black
+set menu_color_normal=light-gray/black
+set menu_color_highlight=white/black
+
+if [ -e /isolinux/splash.png ]; then
+    set theme=/boot/grub/live-theme/theme.txt
+elif [ -e /boot/grub/splash.png ]; then
+    set theme=/boot/grub/live-theme/theme.txt
+fi
+EOF
+
+  cat > boot/grub/live-theme/theme.txt <<'EOF'
+desktop-image: "../splash.png"
+title-color: "#ffffff"
+title-font: "DejaVu Sans Bold 16"
+title-text: "LumaOS"
+message-font: "Unifont Regular 16"
+terminal-font: "Unifont Regular 16"
+
++ boot_menu {
+        left = 10%
+        width = 80%
+        top = 52%
+        height = 48%-80
+        item_color = "#c8c8c8"
+        item_font = "DejaVu Sans Bold 14"
+        selected_item_color= "#ffffff"
+        selected_item_font = "DejaVu Sans Bold 14"
+        item_height = 16
+        item_padding = 0
+        item_spacing = 4
+        icon_width = 0
+        item_icon_space = 0
+}
+
++ progress_bar {
+        id = "__timeout__"
+        left = 15%
+        top = 100%-80
+        height = 16
+        width = 70%
+        font = "DejaVu Sans Regular 14"
+        text_color = "#000000"
+        fg_color = "#ffffff"
+        bg_color = "#a8a8a8"
+        border_color = "#ffffff"
+        text = "@TIMEOUT_NOTIFICATION_LONG@"
+}
+EOF
+fi
+
+if [ -d isolinux ]; then
+  cat > isolinux/stdmenu.cfg <<'EOF'
+menu background splash.png
+menu color title    * #FFFFFFFF *
+menu color border   * #00000000 #00000000 none
+menu color sel      * #ffffffff #76a1d0ff *
+menu color hotsel   1;7;37;40 #ffffffff #76a1d0ff *
+menu color tabmsg   * #ffffffff #00000000 *
+menu color help     37;40 #ffdddd00 #00000000 none
+menu vshift 8
+menu rows 12
+menu helpmsgrow 14
+menu cmdlinerow 16
+menu timeoutrow 16
+menu tabmsgrow 18
+menu tabmsg Press ENTER to boot or TAB to edit a menu entry
+EOF
+fi

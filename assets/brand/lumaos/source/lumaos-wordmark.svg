@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 180" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS wordmark</title>
+  <desc id="desc">Horizontal LumaOS logo lockup with the clean gradient mark and wordmark.</desc>
+  <defs>
+    <linearGradient id="lumaos-lockup-mark" x1="49" y1="26" x2="136" y2="158" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.34" stop-color="#6fe3ff"/>
+      <stop offset="0.68" stop-color="#397bff"/>
+      <stop offset="1" stop-color="#1f3bd6"/>
+    </linearGradient>
+    <linearGradient id="lumaos-lockup-text" x1="187" y1="40" x2="514" y2="139" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#102f65"/>
+      <stop offset="0.5" stop-color="#2465e8"/>
+      <stop offset="1" stop-color="#13bfe8"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(12 8) scale(0.64)">
+    <path d="M79 37c20 0 36 16 36 36v80c0 13 10 23 23 23h51c20 0 36 16 36 36s-16 36-36 36h-64c-47 0-84-38-84-84V73c0-20 17-36 38-36Z" fill="url(#lumaos-lockup-mark)"/>
+  </g>
+  <text x="190" y="116" fill="url(#lumaos-lockup-text)" font-family="Inter, Cantarell, Segoe UI, Arial, sans-serif" font-size="76" font-weight="760" letter-spacing="0">LumaOS</text>
+</svg>

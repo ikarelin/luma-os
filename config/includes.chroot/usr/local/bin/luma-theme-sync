@@ -1,0 +1,175 @@
+#!/bin/sh
+set -eu
+
+apply_theme() {
+  scheme="$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null || echo "'prefer-light'")"
+  selected_accent="$(gsettings get org.gnome.desktop.interface accent-color 2>/dev/null | tr -d "'" || echo "blue")"
+  accent="$selected_accent"
+
+  case "$accent" in
+    teal) accent="green" ;;
+    slate) accent="grey" ;;
+  esac
+
+  case "$accent" in
+    default|blue|purple|pink|red|orange|yellow|green|grey) ;;
+    *) accent="blue" ;;
+  esac
+
+  case "$scheme" in
+    *prefer-dark*)
+      gtk_theme="LumaTahoe-Accent-$accent-Dark"
+      gtk4_source="/usr/share/lumaos/gtk-4.0/dark/$accent"
+      background="file:///usr/share/backgrounds/lumaos/MacTahoe-night.jpeg"
+      ;;
+    *)
+      gtk_theme="LumaTahoe-Accent-$accent-Light"
+      gtk4_source="/usr/share/lumaos/gtk-4.0/light/$accent"
+      background="file:///usr/share/backgrounds/lumaos/MacTahoe-day.jpeg"
+      ;;
+  esac
+
+  if [ ! -d "/usr/share/themes/$gtk_theme" ]; then
+    case "$scheme" in
+      *prefer-dark*)
+        gtk_theme="LumaTahoe-Dark"
+        gtk4_source="/usr/share/lumaos/gtk-4.0/dark/blue"
+        ;;
+      *)
+        gtk_theme="LumaTahoe-Light"
+        gtk4_source="/usr/share/lumaos/gtk-4.0/light/blue"
+        ;;
+    esac
+  fi
+
+  if [ ! -d "$gtk4_source" ]; then
+    case "$scheme" in
+      *prefer-dark*) gtk4_source="/usr/share/lumaos/gtk-4.0/dark/default" ;;
+      *) gtk4_source="/usr/share/lumaos/gtk-4.0/light/default" ;;
+    esac
+  fi
+
+  gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme" 2>/dev/null || true
+  gsettings set org.gnome.desktop.background picture-uri "$background" 2>/dev/null || true
+  gsettings set org.gnome.desktop.background picture-uri-dark "$background" 2>/dev/null || true
+  gsettings set org.gnome.desktop.screensaver picture-uri "$background" 2>/dev/null || true
+
+  if [ -d "$gtk4_source" ]; then
+    mkdir -p "$HOME/.config/gtk-4.0"
+    rm -rf "$HOME/.config/gtk-4.0/assets" "$HOME/.config/gtk-4.0/windows-assets"
+    cp -a "$gtk4_source/." "$HOME/.config/gtk-4.0/"
+    apply_gtk4_accent_override "$HOME/.config/gtk-4.0/gtk.css" "$selected_accent"
+    apply_gtk4_accent_override "$HOME/.config/gtk-4.0/gtk-dark.css" "$selected_accent"
+  fi
+
+  if gsettings list-schemas | grep -qx org.gnome.shell.extensions.user-theme; then
+    gsettings set org.gnome.shell.extensions.user-theme name "$gtk_theme" 2>/dev/null || true
+  fi
+}
+
+apply_gtk4_accent_override() {
+  css_file="$1"
+  accent_name="$2"
+
+  [ -f "$css_file" ] || return 0
+
+  case "$accent_name" in
+    teal) accent_hex="#2190a4" ;;
+    green) accent_hex="#33d17a" ;;
+    yellow) accent_hex="#f6d32d" ;;
+    orange) accent_hex="#ff7800" ;;
+    red) accent_hex="#e01b24" ;;
+    pink) accent_hex="#d56199" ;;
+    purple) accent_hex="#9141ac" ;;
+    slate) accent_hex="#6f8396" ;;
+    *) accent_hex="#3584e4" ;;
+  esac
+
+  cat >> "$css_file" <<EOF
+
+/* LumaOS runtime GNOME accent-color compatibility. */
+@define-color accent_bg_color $accent_hex;
+@define-color accent_color $accent_hex;
+* {
+  --blue-3: #3584e4;
+  --teal-3: #2190a4;
+  --green-3: #33d17a;
+  --yellow-3: #f6d32d;
+  --orange-3: #ff7800;
+  --red-3: #e01b24;
+  --pink-3: #d56199;
+  --purple-3: #9141ac;
+  --slate-3: #6f8396;
+  --standalone-color-oklab: l a b;
+  --accent-blue: #3584e4;
+  --accent-teal: #2190a4;
+  --accent-green: #33d17a;
+  --accent-yellow: #f6d32d;
+  --accent-orange: #ff7800;
+  --accent-red: #e01b24;
+  --accent-pink: #d56199;
+  --accent-purple: #9141ac;
+  --accent-slate: #6f8396;
+  --accent-bg-color: $accent_hex;
+  --accent-color: $accent_hex;
+  --accent-fg-color: #ffffff;
+}
+
+.blue, button.blue, .accent-button.blue, button.accent-button.blue {
+  --accent-bg-color: #3584e4;
+  --accent-color: #3584e4;
+  background-color: #3584e4;
+}
+.teal, button.teal, .accent-button.teal, button.accent-button.teal {
+  --accent-bg-color: #2190a4;
+  --accent-color: #2190a4;
+  background-color: #2190a4;
+}
+.green, button.green, .accent-button.green, button.accent-button.green {
+  --accent-bg-color: #33d17a;
+  --accent-color: #33d17a;
+  background-color: #33d17a;
+}
+.yellow, button.yellow, .accent-button.yellow, button.accent-button.yellow {
+  --accent-bg-color: #f6d32d;
+  --accent-color: #f6d32d;
+  background-color: #f6d32d;
+}
+.orange, button.orange, .accent-button.orange, button.accent-button.orange {
+  --accent-bg-color: #ff7800;
+  --accent-color: #ff7800;
+  background-color: #ff7800;
+}
+.red, button.red, .accent-button.red, button.accent-button.red {
+  --accent-bg-color: #e01b24;
+  --accent-color: #e01b24;
+  background-color: #e01b24;
+}
+.pink, button.pink, .accent-button.pink, button.accent-button.pink {
+  --accent-bg-color: #d56199;
+  --accent-color: #d56199;
+  background-color: #d56199;
+}
+.purple, button.purple, .accent-button.purple, button.accent-button.purple {
+  --accent-bg-color: #9141ac;
+  --accent-color: #9141ac;
+  background-color: #9141ac;
+}
+.slate, button.slate, .accent-button.slate, button.accent-button.slate {
+  --accent-bg-color: #6f8396;
+  --accent-color: #6f8396;
+  background-color: #6f8396;
+}
+
+.accent-button.blue, .accent-button.teal, .accent-button.green,
+.accent-button.yellow, .accent-button.orange, .accent-button.red,
+.accent-button.pink, .accent-button.purple, .accent-button.slate {
+  color: #ffffff;
+}
+EOF
+}
+
+apply_theme
+gsettings monitor org.gnome.desktop.interface 2>/dev/null | while read -r _; do
+  apply_theme
+done

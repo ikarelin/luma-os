@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Install LumaOS
+GenericName=System Installer
+Exec=calamares-install-debian
+Comment=Install LumaOS on this computer
+Keywords=calamares;system;install;lumaos;installer
+Icon=lumaos-logo
+Terminal=false
+Categories=Qt;System;
+StartupWMClass=calamares
+StartupNotify=True

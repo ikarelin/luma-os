@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora monoline mark</title>
+  <desc id="desc">A single rounded blue aurora line forming a capital L.</desc>
+  <defs>
+    <linearGradient id="stroke" x1="70" y1="42" x2="196" y2="212" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d9fbff"/>
+      <stop offset="0.42" stop-color="#4cc7ff"/>
+      <stop offset="1" stop-color="#2e55ff"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.12 0 0 0 0 0.55 0 0 0 0 1 0 0 0 0.75 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <path d="M83 57v101c0 28 22 50 50 50h49" fill="none" stroke="url(#stroke)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M83 59v98c0 17 8 32 20 41" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+</svg>

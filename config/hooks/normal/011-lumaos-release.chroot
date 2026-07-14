@@ -1,0 +1,40 @@
+#!/bin/sh
+set -e
+
+cat > /etc/os-release <<'EOF'
+PRETTY_NAME="LumaOS 0.1 Alpha"
+NAME="LumaOS"
+VERSION_ID="0.1"
+VERSION="0.1 Alpha"
+VERSION_CODENAME=trixie
+ID=lumaos
+ID_LIKE=debian
+HOME_URL="https://example.invalid/lumaos"
+SUPPORT_URL="https://example.invalid/lumaos/support"
+BUG_REPORT_URL="https://example.invalid/lumaos/issues"
+EOF
+
+cat > /etc/issue <<'EOF'
+LumaOS 0.1 Alpha \n \l
+
+EOF
+
+cat > /etc/issue.net <<'EOF'
+LumaOS 0.1 Alpha
+EOF
+
+cat > /etc/lsb-release <<'EOF'
+DISTRIB_ID=LumaOS
+DISTRIB_RELEASE=0.1
+DISTRIB_CODENAME=trixie
+DISTRIB_DESCRIPTION="LumaOS 0.1 Alpha"
+EOF
+
+mkdir -p /etc/dpkg/origins
+cat > /etc/dpkg/origins/lumaos <<'EOF'
+Vendor: LumaOS
+Vendor-URL: https://example.invalid/lumaos
+Bugs: https://example.invalid/lumaos/issues
+EOF
+
+ln -sfn lumaos /etc/dpkg/origins/default

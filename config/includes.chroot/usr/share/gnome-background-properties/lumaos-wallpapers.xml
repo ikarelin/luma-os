@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>LumaOS Tahoe Light</name>
+    <filename>/usr/share/backgrounds/lumaos/MacTahoe-day.jpeg</filename>
+    <filename-dark>/usr/share/backgrounds/lumaos/MacTahoe-night.jpeg</filename-dark>
+    <options>zoom</options>
+    <pcolor>#1b6fd8</pcolor>
+    <scolor>#0b1d3a</scolor>
+    <shade_type>solid</shade_type>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>LumaOS Tahoe Dark</name>
+    <filename>/usr/share/backgrounds/lumaos/MacTahoe-night.jpeg</filename>
+    <options>zoom</options>
+    <pcolor>#0b1d3a</pcolor>
+    <scolor>#07111f</scolor>
+    <shade_type>solid</shade_type>
+  </wallpaper>
+</wallpapers>

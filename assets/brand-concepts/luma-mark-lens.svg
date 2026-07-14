@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Luma lens mark</title>
+  <desc id="desc">A luminous lens-shaped L mark for Luma Linux.</desc>
+  <defs>
+    <linearGradient id="lens-bg" x1="44" y1="36" x2="212" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="0.5" stop-color="#77d9e8"/>
+      <stop offset="1" stop-color="#1d6075"/>
+    </linearGradient>
+    <linearGradient id="lens-shine" x1="75" y1="40" x2="175" y2="172" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="58" fill="#0f1e24"/>
+  <path d="M58 144c0-53 41-96 94-96 23 0 42 6 57 18-13-4-27-5-43-2-51 9-86 45-86 91 0 24 10 44 27 58-30-12-49-38-49-69Z" fill="url(#lens-bg)"/>
+  <path d="M93 83h38v82h62v34H93V83Z" fill="#f8fdff"/>
+  <path d="M73 74c33-37 91-40 130-12-23-6-52-1-77 15-25 15-42 37-49 60-8-20-9-43-4-63Z" fill="url(#lens-shine)"/>
+</svg>

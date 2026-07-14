@@ -1,0 +1,92 @@
+# macOS and editor noise
+.DS_Store
+._*
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# live-build outputs
+.build/
+binary/
+chroot/
+/cache/
+/local/
+/tmp/
+.lock
+*.iso
+*.hybrid.iso
+*.zsync
+*.img
+*.qcow2
+*.vdi
+*.vmdk
+*.raw
+
+# build logs and runtime state
+build.log
+build-run.log
+build-run.pid
+*.log
+*.pid
+
+# generated artifacts and local package repository contents
+artifacts/
+repo/
+pool/
+dists/
+*.deb
+*.changes
+*.buildinfo
+*.dsc
+*.tar.*
+
+# live-build transient package lists and lock files
+config/binary
+config/bootstrap
+config/chroot
+config/common
+config/source
+config/hooks/live/
+config/hooks/normal/*.hook.chroot
+config/package-lists/live.list.chroot
+*.lock
+
+# accidental root-level live-build/config duplicates; canonical copies live in config/ and scripts/
+/archives/
+/brand/
+/debian-installer/
+/hooks/
+/images/
+/includes.binary/
+/includes.chroot/
+/package-lists/
+/build-status.sh
+/run-detached-build.sh
+/stop-build.sh
+/update-local-repo.sh
+/setup-local-repo-server.sh
+/remote-healthcheck.sh
+/export-brand-assets.sh
+/update-mactahoe-cache.sh
+/calamares-bootloader-config
+/luma-base.list.chroot
+/lumaos-mark-aurora-core-large.svg
+
+# local upstream caches; update with scripts/update-mactahoe-cache.sh
+assets/upstream/MacTahoe-gtk-theme/
+assets/upstream/MacTahoe-icon-theme/
+config/includes.chroot/usr/src/lumaos/upstream/
+
+# Python or shell helper caches
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+
+# secrets and local overrides
+.env
+.env.*
+*.key
+*.gpg
+*.asc

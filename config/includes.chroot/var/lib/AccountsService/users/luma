@@ -1,0 +1,4 @@
+[User]
+Session=gnome
+Icon=/var/lib/AccountsService/icons/luma
+SystemAccount=false

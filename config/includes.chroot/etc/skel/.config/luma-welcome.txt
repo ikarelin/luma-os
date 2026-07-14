@@ -1,0 +1,3 @@
+Welcome to Luma Linux 0.1 Alpha.
+
+This first image is a technical foundation for the future visual system.

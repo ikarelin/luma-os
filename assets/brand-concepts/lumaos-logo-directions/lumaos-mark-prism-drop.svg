@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS prism drop mark</title>
+  <desc id="desc">A rounded blue droplet with a prism-like inner cut.</desc>
+  <defs>
+    <linearGradient id="drop" x1="70" y1="34" x2="190" y2="226" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b9f6ff"/>
+      <stop offset="0.45" stop-color="#278cff"/>
+      <stop offset="1" stop-color="#1730a8"/>
+    </linearGradient>
+    <linearGradient id="facet" x1="82" y1="80" x2="174" y2="184" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.55" stop-color="#8de9ff"/>
+      <stop offset="1" stop-color="#396dff"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <path d="M128 28c43 45 80 84 80 132 0 43-35 76-80 76s-80-33-80-76c0-48 37-87 80-132Z" fill="url(#drop)"/>
+  <path d="M91 90h44l39 78h-44L91 90Z" fill="url(#facet)" opacity="0.92"/>
+  <path d="M91 90v78h39L91 90Z" fill="#ffffff" opacity="0.32"/>
+  <path d="M98 89c8-16 19-31 30-44 34 36 65 72 71 110-17-31-47-54-85-54-6 0-11-4-16-12Z" fill="#ffffff" opacity="0.18"/>
+</svg>

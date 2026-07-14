@@ -1,0 +1,77 @@
+{
+  "distribution": {
+     "import_bookmarks": false,
+     "import_bookmarks_from_file": "/usr/share/chromium/initial_bookmarks.html",
+     "make_chrome_default": false,
+     "make_chrome_default_for_user": false,
+     "verbose_logging": true,
+     "skip_first_run_ui": true,
+     "create_all_shortcuts": true,
+     "suppress_first_run_default_browser_prompt": true
+  },
+  "browser": {
+     "show_home_button": true,
+     "has_seen_welcome_page": true,
+     "check_default_browser": false
+  },
+  "search_provider_overrides": [{
+     "enabled": true,
+     "encoding": "UTF-8",
+     "favicon_url": "https://www.google.com/favicon.ico",
+     "id": 1,
+     "keyword": "google.com",
+     "name": "Google",
+     "search_url": "https://www.google.com/search?q={searchTerms}",
+     "suggest_url": "https://www.google.com/complete/search?client=chrome&q={searchTerms}"
+  }],
+  "search_provider_overrides_version": 1,
+  "default_search_provider": {
+     "enabled": true,
+     "name": "Google",
+     "keyword": "google.com",
+     "search_url": "https://www.google.com/search?q={searchTerms}",
+     "suggest_url": "https://www.google.com/complete/search?client=chrome&q={searchTerms}",
+     "favicon_url": "https://www.google.com/favicon.ico",
+     "encoding": "UTF-8"
+  },
+  "profile": {
+     "default_content_setting_values": {
+        "payment_handler": 2
+     }
+  },
+  "bookmark_bar": {
+     "show_on_all_tabs": true
+  },
+  "net": {
+     "network_prediction_options": 2
+  },
+  "search": {
+     "suggest_enabled": true
+  },
+  "signin": {
+     "allowed": false,
+     "allowed_on_next_startup": false
+  },
+  "autofill": {
+     "profile_enabled": false,
+     "credit_card_enabled": false
+  },
+  "payments": {
+     "can_make_payment_enabled": false
+  },
+  "safebrowsing": {
+     "enabled": false
+  },
+  "dns_prefetching": {
+     "enabled": false
+  },
+  "alternate_error_pages": {
+     "enabled": false
+  },
+  "credentials_enable_service": false,
+  "credentials_enable_autosignin": false,
+  "default_apps": "noinstall",
+  "hide_web_store_icon": true,
+  "homepage_is_newtabpage": true,
+  "homepage": "https://www.google.com"
+}

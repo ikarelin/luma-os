@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+packages="$(dpkg-query -W -f='${Package}\n' 'linux-image-[0-9]*-amd64' 2>/dev/null | grep '^linux-image-[0-9]' || true)"
+
+if [ -z "$packages" ]; then
+  exit 0
+fi
+
+keep="$(printf '%s\n' "$packages" | sort -V | tail -1)"
+
+printf '%s\n' "$packages" | while read -r package; do
+  if [ "$package" != "$keep" ]; then
+    apt-get purge -y "$package"
+  fi
+done
+
+apt-get autoremove -y

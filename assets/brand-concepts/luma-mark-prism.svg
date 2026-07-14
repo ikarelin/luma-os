@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Luma prism mark</title>
+  <desc id="desc">A geometric prism and light beam mark for Luma Linux.</desc>
+  <defs>
+    <linearGradient id="beam" x1="44" y1="78" x2="216" y2="179" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.38" stop-color="#9be8f1"/>
+      <stop offset="0.68" stop-color="#ffcf86"/>
+      <stop offset="1" stop-color="#67c9a5"/>
+    </linearGradient>
+    <linearGradient id="prism" x1="76" y1="52" x2="178" y2="204" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5fbff"/>
+      <stop offset="1" stop-color="#2a8391"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="52" fill="#10181d"/>
+  <path d="M36 135h76l108 48-76 1L36 135Z" fill="url(#beam)" opacity="0.88"/>
+  <path d="M124 40 51 202h145L124 40Z" fill="url(#prism)" opacity="0.94"/>
+  <path d="M124 40v162h72L124 40Z" fill="#ffffff" opacity="0.18"/>
+  <path d="M93 92h34v77h48v31H93V92Z" fill="#f8fdff"/>
+</svg>

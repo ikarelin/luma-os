@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+
+GRUB_INSTALL="/usr/sbin/grub-install"
+
+case " $* " in
+  *" --removable "*)
+    exec "$GRUB_INSTALL" "$@"
+    ;;
+esac
+
+for arg in "$@"; do
+  case "$arg" in
+    --target=*efi*|--efi-directory=*|--bootloader-id=*)
+      exec "$GRUB_INSTALL" --removable "$@"
+      ;;
+  esac
+done
+
+if [ -d /sys/firmware/efi ]; then
+  exec "$GRUB_INSTALL" --removable "$@"
+fi
+
+exec "$GRUB_INSTALL" "$@"

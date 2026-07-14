@@ -1,0 +1,7 @@
+NAME="LumaOS"
+VERSION="0.1 Alpha"
+ID=luma
+ID_LIKE=debian
+PRETTY_NAME="LumaOS 0.1 Alpha"
+HOME_URL="https://example.invalid/lumaos"
+BUG_REPORT_URL="https://example.invalid/lumaos/issues"

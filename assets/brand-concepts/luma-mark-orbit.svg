@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Luma orbit mark</title>
+  <desc id="desc">A calm orbital light ring around an L mark for Luma Linux.</desc>
+  <defs>
+    <linearGradient id="ring" x1="50" y1="48" x2="208" y2="211" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.42" stop-color="#78dce8"/>
+      <stop offset="1" stop-color="#4cb58f"/>
+    </linearGradient>
+    <linearGradient id="core" x1="80" y1="70" x2="182" y2="198" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eefaff"/>
+      <stop offset="1" stop-color="#164859"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#11191e"/>
+  <ellipse cx="128" cy="128" rx="92" ry="54" transform="rotate(-27 128 128)" fill="none" stroke="url(#ring)" stroke-width="15" opacity="0.9"/>
+  <circle cx="128" cy="128" r="64" fill="url(#core)"/>
+  <path d="M100 78h34v78h50v31h-84V78Z" fill="#f9fdff"/>
+  <circle cx="198" cy="82" r="10" fill="#ffe0a3"/>
+</svg>

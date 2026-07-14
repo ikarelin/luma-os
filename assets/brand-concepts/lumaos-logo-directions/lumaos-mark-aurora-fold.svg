@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora fold mark</title>
+  <desc id="desc">A folded blue ribbon forming a capital L.</desc>
+  <defs>
+    <linearGradient id="vertical" x1="74" y1="42" x2="130" y2="198" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ddfbff"/>
+      <stop offset="0.45" stop-color="#49bcff"/>
+      <stop offset="1" stop-color="#245aff"/>
+    </linearGradient>
+    <linearGradient id="horizontal" x1="96" y1="151" x2="210" y2="216" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#72e4ff"/>
+      <stop offset="0.58" stop-color="#386eff"/>
+      <stop offset="1" stop-color="#1a2c9b"/>
+    </linearGradient>
+    <linearGradient id="fold" x1="96" y1="130" x2="134" y2="172" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#06172f" stop-opacity="0.16"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <path d="M78 45h39c11 0 20 9 20 20v102c0 11-9 20-20 20H78V45Z" fill="url(#vertical)"/>
+  <path d="M97 155h80c17 0 31 14 31 31s-14 31-31 31H97v-62Z" fill="url(#horizontal)"/>
+  <path d="M97 155h40v32H97v-32Z" fill="url(#fold)"/>
+  <path d="M87 58h14c9 0 16 7 16 16v77" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity="0.55"/>
+</svg>

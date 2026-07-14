@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LumaOS aurora core large mark</title>
+  <desc id="desc">An enlarged luminous rounded L without a surrounding ring.</desc>
+  <defs>
+    <linearGradient id="mark" x1="70" y1="36" x2="194" y2="226" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.34" stop-color="#6fe3ff"/>
+      <stop offset="0.68" stop-color="#397bff"/>
+      <stop offset="1" stop-color="#1f3bd6"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#071526"/>
+  <path d="M79 37c20 0 36 16 36 36v80c0 13 10 23 23 23h51c20 0 36 16 36 36s-16 36-36 36h-64c-47 0-84-38-84-84V73c0-20 17-36 38-36Z" fill="url(#mark)"/>
+</svg>

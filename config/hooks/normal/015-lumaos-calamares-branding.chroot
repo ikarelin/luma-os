@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+if [ -f /etc/calamares/settings.conf ]; then
+  sed -i 's/^branding: .*/branding: lumaos/' /etc/calamares/settings.conf
+fi

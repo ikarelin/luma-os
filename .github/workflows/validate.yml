@@ -1,0 +1,40 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          test -f README.md
+          test -f LICENSE
+          test -f auto/config
+          test -f config/package-lists/luma-base.list.chroot
+          test -f config/package-lists/luma-gnome.list.chroot
+          test -f config/package-lists/luma-installer.list.chroot
+
+      - name: Check shell syntax
+        run: |
+          set -eu
+          for file in auto/* scripts/* config/hooks/normal/* \
+            config/includes.chroot/usr/sbin/* \
+            config/includes.chroot/usr/share/calamares/helpers/*
+          do
+            [ -f "$file" ] || continue
+            sh -n "$file"
+          done
+
+      - name: Check ignored build artifacts
+        run: |
+          set -eu
+          touch build-run.log build-run.pid luma-linux-alpha-amd64.hybrid.iso
+          mkdir -p chroot cache binary artifacts
+          git check-ignore build-run.log build-run.pid luma-linux-alpha-amd64.hybrid.iso
+          git check-ignore chroot/ cache/ binary/ artifacts/
