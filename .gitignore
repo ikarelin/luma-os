@@ -11,6 +11,12 @@
 .build/
 binary/
 chroot/
+chroot.files
+chroot.packages.*
+binary.modified_timestamps
+lumaos-*.contents
+lumaos-*.files
+lumaos-*.packages
 /cache/
 /local/
 /tmp/

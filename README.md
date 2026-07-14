@@ -72,7 +72,7 @@ tail -f build-run.log
 The generated ISO should appear as:
 
 ```text
-luma-linux-alpha-amd64.hybrid.iso
+lumaos-alpha-amd64.hybrid.iso
 ```
 
 Detailed build notes are in [docs/BUILD_REMOTE.md](docs/BUILD_REMOTE.md) and

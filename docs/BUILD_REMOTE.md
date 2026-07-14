@@ -40,9 +40,13 @@ sudo apt install qemu-system-x86 ovmf
 
 ```sh
 cd /home/ikarelin/luma_linux
-./auto/clean
-./auto/config
-./auto/build
+./scripts/run-detached-build.sh
+```
+
+For a full purge rebuild, use:
+
+```sh
+LUMA_PURGE=1 ./scripts/run-detached-build.sh
 ```
 
 The build configuration uses the CDN-backed `deb.debian.org` Debian mirrors.
@@ -54,5 +58,5 @@ If the build host has temporary routing issues, switch the mirror options in
 After an ISO exists, test it with QEMU:
 
 ```sh
-qemu-system-x86_64 -m 4096 -enable-kvm -cdrom luma-linux-alpha-amd64.hybrid.iso
+qemu-system-x86_64 -m 4096 -enable-kvm -cdrom lumaos-alpha-amd64.hybrid.iso
 ```
