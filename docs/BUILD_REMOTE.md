@@ -60,3 +60,9 @@ After an ISO exists, test it with QEMU:
 ```sh
 qemu-system-x86_64 -m 4096 -enable-kvm -cdrom lumaos-alpha-amd64.hybrid.iso
 ```
+
+## Release Additions
+
+The desktop image includes CUPS printing, common desktop printer drivers,
+driverless IPP/USB support, SANE scanning, AirScan/eSCL/WSD scanning, HP
+support, GNOME's Document Scanner, and the standard LibreOffice desktop suite.

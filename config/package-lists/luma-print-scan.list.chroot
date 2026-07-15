@@ -1,0 +1,16 @@
+cups
+cups-client
+cups-filters
+cups-browsed
+cups-pk-helper
+system-config-printer
+printer-driver-all
+hplip
+hplip-gui
+ipp-usb
+sane-utils
+sane-airscan
+simple-scan
+avahi-daemon
+avahi-utils
+libnss-mdns
