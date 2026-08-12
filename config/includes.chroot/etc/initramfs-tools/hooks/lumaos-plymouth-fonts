@@ -1,0 +1,48 @@
+#!/bin/sh
+set -e
+
+PREREQ=""
+
+prereqs()
+{
+  echo "$PREREQ"
+}
+
+case "$1" in
+  prereqs)
+    prereqs
+    exit 0
+    ;;
+esac
+
+. /usr/share/initramfs-tools/hook-functions
+
+copy_font_dir()
+{
+  dir="$1"
+
+  [ -d "$dir" ] || return 0
+
+  find "$dir" -maxdepth 1 -type f \( -name "*.ttf" -o -name "*.otf" \) | \
+    while IFS= read -r font; do
+      copy_file font "$font"
+    done
+}
+
+copy_font_dir /usr/share/fonts/truetype/dejavu
+copy_font_dir /usr/share/fonts/truetype/cantarell
+
+if [ -d /etc/fonts ]; then
+  mkdir -p "$DESTDIR/etc"
+  cp -a /etc/fonts "$DESTDIR/etc/"
+fi
+
+if [ -d /usr/share/fontconfig ]; then
+  mkdir -p "$DESTDIR/usr/share"
+  cp -a /usr/share/fontconfig "$DESTDIR/usr/share/"
+fi
+
+if [ -d /var/cache/fontconfig ]; then
+  mkdir -p "$DESTDIR/var/cache"
+  cp -a /var/cache/fontconfig "$DESTDIR/var/cache/"
+fi

@@ -25,6 +25,14 @@ EOF
   ln -sfn /etc/alternatives/default.plymouth /usr/share/plymouth/themes/default.plymouth
 fi
 
+if [ -f /etc/initramfs-tools/hooks/lumaos-plymouth-fonts ]; then
+  chmod 0755 /etc/initramfs-tools/hooks/lumaos-plymouth-fonts
+fi
+
+if command -v fc-cache >/dev/null 2>&1; then
+  fc-cache -f || true
+fi
+
 if [ -f /usr/share/plymouth/themes/lumaos/watermark.png ]; then
   cp -a /usr/share/plymouth/themes/lumaos/watermark.png /usr/share/plymouth/debian-logo.png
 
