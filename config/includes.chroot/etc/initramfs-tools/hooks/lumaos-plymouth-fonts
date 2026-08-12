@@ -25,7 +25,12 @@ copy_font_dir()
 
   find "$dir" -maxdepth 1 -type f \( -name "*.ttf" -o -name "*.otf" \) | \
     while IFS= read -r font; do
-      copy_file font "$font"
+      rc=0
+      copy_file font "$font" || rc="$?"
+      case "$rc" in
+        0|1) ;;
+        *) return "$rc" ;;
+      esac
     done
 }
 
