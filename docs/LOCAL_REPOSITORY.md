@@ -18,7 +18,7 @@ web services. FTP is read-only anonymous FTP served by vsftpd.
 Run this on the Deepin build host when no live-build process is using apt/dpkg:
 
 ```sh
-cd /home/ikarelin/luma_linux
+cd /home/ikarelin/luma-os
 sudo ./scripts/setup-local-repo-server.sh
 ```
 
@@ -46,7 +46,7 @@ Copy custom `.deb` files into:
 Then regenerate metadata:
 
 ```sh
-cd /home/ikarelin/luma_linux
+cd /home/ikarelin/luma-os
 ./scripts/update-local-repo.sh
 ```
 

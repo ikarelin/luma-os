@@ -26,8 +26,8 @@ defaults without proprietary Apple assets.
 ## What Makes Luma Different
 
 - GNOME defaults tuned toward a macOS-like top-panel and dock workflow.
-- MacTahoe GTK, GNOME Shell, cursor, and icon themes are installed during the
-  image build and exposed through the `LumaTahoe` system aliases.
+- Aura Glass is installed during the image build with a blue accent, rounded
+  surfaces, translucent application windows, and Colloid Blue icons.
 - Chromium instead of Firefox in the default application set.
 - Calamares installer with Luma-specific bootloader handling for removable EFI
   media.
@@ -53,7 +53,7 @@ assets/brand-concepts/        early visual identity concepts
 On the build host:
 
 ```sh
-cd /home/ikarelin/luma_linux
+cd /home/ikarelin/luma-os
 ./scripts/run-detached-build.sh
 ```
 

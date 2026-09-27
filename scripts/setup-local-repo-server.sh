@@ -3,7 +3,8 @@ set -e
 
 REPO_ROOT="${LUMA_REPO_ROOT:-/srv/luma-linux/repo}"
 REPO_OWNER="${LUMA_REPO_OWNER:-${SUDO_USER:-$USER}}"
-PROJECT_DIR="${LUMA_PROJECT_DIR:-/home/ikarelin/luma_linux}"
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+PROJECT_DIR="${LUMA_PROJECT_DIR:-$(dirname -- "$SCRIPT_DIR")}"
 
 if [ "$(id -u)" -ne 0 ]; then
   exec sudo "$0" "$@"

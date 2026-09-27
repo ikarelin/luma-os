@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=LumaOS Theme Sync
-Exec=/usr/local/bin/luma-theme-sync
-OnlyShowIn=GNOME;
-NoDisplay=true
-X-GNOME-Autostart-enabled=true

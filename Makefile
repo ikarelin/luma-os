@@ -1,5 +1,5 @@
 REMOTE ?= ikarelin@192.168.1.81
-REMOTE_DIR ?= /home/ikarelin/luma_linux
+REMOTE_DIR ?= /home/ikarelin/luma-os
 
 .PHONY: sync healthcheck status build-detached stop-build repo-setup repo-update
 

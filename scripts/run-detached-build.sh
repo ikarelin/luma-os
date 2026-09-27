@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-PROJECT_DIR="/home/ikarelin/luma_linux"
+PROJECT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
 cd "$PROJECT_DIR"
 
 if pgrep -f "$PROJECT_DIR/auto/build|lb build" >/dev/null 2>&1; then
@@ -15,6 +15,8 @@ if ls ./*.iso ./*.hybrid.iso ./*.zsync >/dev/null 2>&1; then
   mv ./*.iso ./*.hybrid.iso ./*.zsync "$ARCHIVE_DIR"/ 2>/dev/null || true
   echo "archived previous images to $ARCHIVE_DIR"
 fi
+
+./scripts/update-aura-glass-cache.sh
 
 if [ "${LUMA_PURGE:-0}" = "1" ]; then
   ./auto/purge

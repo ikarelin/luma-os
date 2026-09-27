@@ -9,7 +9,7 @@ ikarelin@192.168.1.81
 Workspace:
 
 ```text
-/home/ikarelin/luma_linux
+/home/ikarelin/luma-os
 ```
 
 Initial host check on 2026-07-04:
@@ -39,7 +39,7 @@ sudo apt install qemu-system-x86 ovmf
 ## Build Commands
 
 ```sh
-cd /home/ikarelin/luma_linux
+cd /home/ikarelin/luma-os
 ./scripts/run-detached-build.sh
 ```
 

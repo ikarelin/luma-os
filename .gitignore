@@ -75,14 +75,13 @@ config/package-lists/live.list.chroot
 /setup-local-repo-server.sh
 /remote-healthcheck.sh
 /export-brand-assets.sh
-/update-mactahoe-cache.sh
+/update-aura-glass-cache.sh
 /calamares-bootloader-config
 /luma-base.list.chroot
 /lumaos-mark-aurora-core-large.svg
 
-# local upstream caches; update with scripts/update-mactahoe-cache.sh
-assets/upstream/MacTahoe-gtk-theme/
-assets/upstream/MacTahoe-icon-theme/
+# local upstream caches; update with scripts/update-aura-glass-cache.sh
+assets/upstream/aura-glass/
 config/includes.chroot/usr/src/lumaos/upstream/
 
 # Python or shell helper caches

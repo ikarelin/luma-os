@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-PROJECT_DIR="/home/ikarelin/luma_linux"
+PROJECT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
 cd "$PROJECT_DIR"
 
 if [ -f build-run.pid ]; then

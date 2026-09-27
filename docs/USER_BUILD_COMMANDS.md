@@ -3,7 +3,7 @@
 Run these commands on the build host:
 
 ```sh
-cd /home/ikarelin/luma_linux
+cd /home/ikarelin/luma-os
 ```
 
 ## Start A Build
@@ -50,7 +50,7 @@ starting another one so `apt` and `dpkg` can finish cleanup.
 The ISO appears in:
 
 ```text
-/home/ikarelin/luma_linux/
+/home/ikarelin/luma-os/
 ```
 
 The current image name pattern is:
