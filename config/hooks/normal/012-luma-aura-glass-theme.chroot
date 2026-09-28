@@ -38,6 +38,25 @@ if [ -d "$CACHE_SNAPSHOT" ]; then
   cp -a "$CACHE_SNAPSHOT/." "$SKEL_HOME/.cache/aura-glass/src/"
 fi
 
+# On GNOME 48 and 49 Aura Glass normally downloads Open Bar from
+# extensions.gnome.org even when its pinned source checkout is already cached.
+# Seed that exact supported checkout into the skeleton so image construction is
+# not coupled to the extension site's availability.
+GNOME_MAJOR="$(gnome-shell --version | sed -n 's/.* \([0-9][0-9]*\)\..*/\1/p')"
+OPENBAR_SRC="$SKEL_HOME/.cache/aura-glass/src/openbar"
+OPENBAR_DEST="$SKEL_HOME/.local/share/gnome-shell/extensions/openbar@neuromorph"
+if [ -n "$GNOME_MAJOR" ] && [ "$GNOME_MAJOR" -lt 50 ] \
+  && [ -d "$OPENBAR_SRC/.git" ] \
+  && /usr/bin/git -C "$OPENBAR_SRC" cat-file -e 01fb24217e0c^{commit} 2>/dev/null; then
+  /usr/bin/git -C "$OPENBAR_SRC" checkout --quiet --detach 01fb24217e0c
+  /usr/bin/git -C "$OPENBAR_SRC" reset --quiet --hard 01fb24217e0c
+  /usr/bin/git -C "$OPENBAR_SRC" clean --quiet -fdx
+  rm -rf "$OPENBAR_DEST"
+  mkdir -p "$(dirname "$OPENBAR_DEST")"
+  cp -a "$OPENBAR_SRC/openbar@neuromorph" "$OPENBAR_DEST"
+  glib-compile-schemas "$OPENBAR_DEST/schemas"
+fi
+
 # Aura Glass normally refreshes every pinned checkout before using it. During
 # an image build, a complete local cache is preferable to failing on a brief
 # GitHub outage. Fetch only when the requested commit is not already present.
