@@ -91,7 +91,28 @@ fi
 exec "$@"
 EOF
 
-chmod 0755 "$WORKDIR/bin/git" "$WORKDIR/bin/systemctl" "$WORKDIR/bin/sudo"
+# Aura applies a per-user Flatpak override. Initializing Flatpak's user repo in
+# /etc/skel is not valid during image construction, so defer that one command
+# and materialize the equivalent override file after the installer finishes.
+cat > "$WORKDIR/bin/flatpak" <<'EOF'
+#!/bin/sh
+is_override=false
+is_user=false
+for arg in "$@"; do
+  [ "$arg" = "override" ] && is_override=true
+  [ "$arg" = "--user" ] && is_user=true
+done
+if $is_override && $is_user; then
+  exit 0
+fi
+exec /usr/bin/flatpak "$@"
+EOF
+
+chmod 0755 \
+  "$WORKDIR/bin/git" \
+  "$WORKDIR/bin/systemctl" \
+  "$WORKDIR/bin/sudo" \
+  "$WORKDIR/bin/flatpak"
 
 export HOME="$SKEL_HOME"
 export USER=root
@@ -113,6 +134,12 @@ dbus-run-session -- "$WORKDIR/aura-glass/install.sh" \
   --gdm \
   --no-gdm-monitors \
   --yes </dev/null
+
+mkdir -p "$SKEL_HOME/.local/share/flatpak/overrides"
+cat > "$SKEL_HOME/.local/share/flatpak/overrides/global" <<'EOF'
+[Context]
+filesystems=xdg-config/gtk-4.0:ro;xdg-config/gtk-3.0:ro;xdg-data/themes:ro;xdg-data/icons:ro;
+EOF
 
 # LumaOS owns theme updates and the login background. Keep the settings app,
 # but do not open it automatically or run a privileged wallpaper sync service
