@@ -176,7 +176,7 @@ test -d "$SKEL_HOME/.local/share/gnome-shell/extensions/aura-glass-blur@aura-gla
 test -d "$SKEL_HOME/.local/share/gnome-shell/extensions/openbar@neuromorph"
 test -d "$SKEL_HOME/.local/share/gnome-shell/extensions/blur-my-shell@aunetx"
 test -d "$SKEL_HOME/.local/share/gnome-shell/extensions/custom-osd@neuromorph"
-test -d "$SKEL_HOME/.local/share/icons/Colloid-Dark"
+test -d /usr/share/icons/Colloid-Dark
 test -s /usr/share/backgrounds/aura-gdm.png
 
 rm -rf "$WORKDIR" /usr/src/lumaos/upstream
