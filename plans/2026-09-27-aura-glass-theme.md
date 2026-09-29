@@ -6,9 +6,11 @@
 - [x] Add Aura Glass runtime/build dependencies and a local cache updater.
 - [x] Update user-facing build documentation.
 - [x] Run shell syntax and repository consistency checks.
-- [ ] Sync the branch to the build server, populate the local cache, and build
-  an ISO through the Aura Glass hook. The clean build is running as PID 482596;
-  the hook itself passed a complete chroot test on 2026-09-29.
+- [x] Sync the branch to the build server, populate the local cache, and build
+  an ISO through the Aura Glass hook. The clean build and a complete chroot
+  hook test passed on 2026-09-29. The resulting hybrid ISO supports BIOS and
+  UEFI boot and has SHA-256
+  `6edb0838c7bb5ba9e66c3ea45d27a9a890bb4006808c1fe7a4c87b39240a95ee`.
 
 ## Decision
 
