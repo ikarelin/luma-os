@@ -10,6 +10,8 @@ if [ "$(id -u)" -ne 0 ]; then
   exec sudo "$0" "$@"
 fi
 
+export DEBIAN_FRONTEND=noninteractive
+
 apt-get update
 apt-get install -y nginx vsftpd apt-utils dpkg-dev
 
@@ -32,6 +34,10 @@ server {
     }
 }
 EOF
+
+# The Debian package enables a sample virtual host on port 80. LumaOS serves
+# only on 8080 so it can coexist with an existing web server on the host.
+rm -f /etc/nginx/sites-enabled/default
 
 cp /etc/vsftpd.conf /etc/vsftpd.conf.luma-backup 2>/dev/null || true
 cat > /etc/vsftpd.conf <<'EOF'
