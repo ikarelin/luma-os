@@ -1,13 +1,14 @@
 # Aura Glass integration plan
 
 - [x] Inspect the current LumaOS theme hooks and Aura Glass installer.
-- [ ] Replace the MacTahoe build hook with a pinned Aura Glass installer hook.
-- [ ] Update GNOME defaults and remove the Tahoe runtime synchronizer.
-- [ ] Add Aura Glass runtime/build dependencies and a local cache updater.
-- [ ] Update user-facing build documentation.
-- [ ] Run shell syntax and repository consistency checks.
+- [x] Replace the MacTahoe build hook with a pinned Aura Glass installer hook.
+- [x] Update GNOME defaults and remove the Tahoe runtime synchronizer.
+- [x] Add Aura Glass runtime/build dependencies and a local cache updater.
+- [x] Update user-facing build documentation.
+- [x] Run shell syntax and repository consistency checks.
 - [ ] Sync the branch to the build server, populate the local cache, and build
-  an ISO through the Aura Glass hook.
+  an ISO through the Aura Glass hook. The clean build is running as PID 482596;
+  the hook itself passed a complete chroot test on 2026-09-29.
 
 ## Decision
 
