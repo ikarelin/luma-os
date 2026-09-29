@@ -38,6 +38,15 @@ if [ -d "$CACHE_SNAPSHOT" ]; then
   cp -a "$CACHE_SNAPSHOT/." "$SKEL_HOME/.cache/aura-glass/src/"
 fi
 
+# Aura's GDM step currently replaces every prepare_deps and
+# get_utc_epoch_time symbol in WhiteSur with true. That also renames the
+# function definitions and makes WhiteSur's dependency check recursively call
+# itself. All required build dependencies are already installed above, so keep
+# WhiteSur's original guarded checks intact.
+sed -i \
+  '/sed -i.*prepare_deps.*true/d; /sed -i.*get_utc_epoch_time.*true/d' \
+  "$WORKDIR/aura-glass/lib/steps-gdm.sh"
+
 # On GNOME 48 and 49 Aura Glass normally downloads Open Bar from
 # extensions.gnome.org even when its pinned source checkout is already cached.
 # Seed that exact supported checkout into the skeleton so image construction is
