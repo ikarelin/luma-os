@@ -128,9 +128,18 @@ export USER=root
 export SUDO_USER=root
 export PATH="$WORKDIR/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
+if [ -d "$SKEL_HOME/.cache/aura-glass/src/luma-extensions" ]; then
+  mkdir -p "$SKEL_HOME/.local/share/gnome-shell/extensions"
+  cp -a "$SKEL_HOME/.cache/aura-glass/src/luma-extensions/." \
+    "$SKEL_HOME/.local/share/gnome-shell/extensions/"
+  for schema_dir in "$SKEL_HOME"/.local/share/gnome-shell/extensions/*/schemas; do
+    [ ! -d "$schema_dir" ] || glib-compile-schemas "$schema_dir"
+  done
+fi
+
 AURA_STATUS=0
 dbus-run-session -- "$WORKDIR/aura-glass/install.sh" \
-  --minimal \
+  --full \
   --accent blue \
   --radius-preset rounded \
   --app-transparency 90% \
@@ -139,7 +148,6 @@ dbus-run-session -- "$WORKDIR/aura-glass/install.sh" \
   --cursors adwaita \
   --font system \
   --no-rounded-blur \
-  --no-panel-blur-fix \
   --no-update-check \
   --gdm \
   --no-gdm-monitors \

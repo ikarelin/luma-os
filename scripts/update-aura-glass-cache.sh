@@ -17,6 +17,9 @@ if ! timeout 180 git -C "$SOURCE_DIR" pull --ff-only; then
   echo "warning: could not update Aura Glass; keeping the local checkout" >&2
 fi
 
+python3 "$ROOT_DIR/scripts/cache-aura-extensions.py" "$SOURCE_DIR" \
+  "$SOURCE_CACHE/luma-extensions" 48
+
 rm -rf "$THEME_SNAPSHOT" "$CACHE_SNAPSHOT"
 mkdir -p "$SNAPSHOT_ROOT" "$THEME_SNAPSHOT"
 cp -a "$SOURCE_DIR/." "$THEME_SNAPSHOT/"

@@ -95,3 +95,4 @@ __pycache__/
 *.key
 *.gpg
 *.asc
+!config/includes.chroot/usr/share/keyrings/google-chrome.asc

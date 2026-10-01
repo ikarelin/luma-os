@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components version="1.0" origin="lumaos-third-party">
+  <component type="desktop-application">
+    <id>com.google.Chrome.desktop</id>
+    <name>Google Chrome</name>
+    <summary>Browse the web with Google Chrome</summary>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>LicenseRef-proprietary</project_license>
+    <pkgname>google-chrome-stable</pkgname>
+    <launchable type="desktop-id">google-chrome.desktop</launchable>
+    <description><p>Google Chrome is a web browser from Google.</p></description>
+    <url type="homepage">https://www.google.com/chrome/</url>
+    <icon type="stock">web-browser</icon>
+    <categories><category>Network</category><category>WebBrowser</category></categories>
+    <provides><binary>google-chrome-stable</binary></provides>
+  </component>
+</components>
